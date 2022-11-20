@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('role_pivots', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('community_id') // UNSIGNED BIG INT
+            $table->foreignId('community_id') 
             ->references('id')
             ->on('communities');
-            $table->foreignId('user_id') // UNSIGNED BIG INT
+            $table->foreignId('user_id') 
             ->references('id')
             ->on('users');
-            $table->foreignId('role_id') // UNSIGNED BIG INT
+            $table->foreignId('role_id') 
             ->references('id')
             ->on('roles');   
             $table->timestamps();
