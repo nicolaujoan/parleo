@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('post_id')
-                ->constrained('post')
+                ->constrained('posts')
                 ->nullOnDelete();
 
             $table->foreignId('tag_id')
-                ->constrained('tag')
+                ->constrained('tags')
                 ->nullOnDelete();
 
             $table->timestamps();
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_tag');
+        Schema::dropIfExists('posts_tags');
     }
 };
