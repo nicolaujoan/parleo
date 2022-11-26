@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Eloquent;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Database\Factories\UserFactory;
+use Illuminate\Support\Facades\DB;
 
 class UserSeeder extends Seeder
 {
@@ -15,6 +17,14 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->count(1000)->create();
+        $usersToCreate = [];
+        $factory = new UserFactory();
+        // check if table users is empty
+
+        for ($i = 0; $i <= 1000; $i++) {
+            array_push($usersToCreate, $factory->definition());
+        }
+
+        DB::table('users')->insert($usersToCreate);
     }
 }
