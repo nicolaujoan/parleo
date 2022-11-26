@@ -13,7 +13,7 @@ class Like extends Model
      *
      * @var string
      */
-    protected $table = 'like';
+    protected $table = 'likes';
 
     /**
      * The attributes that are mass assignable.

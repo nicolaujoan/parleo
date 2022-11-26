@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comment', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->string('content');
 
             $table->foreignId('user_id')
-                ->constrained('user')
+                ->constrained('users')
                 ->nullOnDelete();
 
             $table->foreignId('post_id')
-                ->constrained('post')
+                ->constrained('posts')
                 ->nullOnDelete();
 
             $table->timestamps();

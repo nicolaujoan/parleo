@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tag', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->id('id');
             $table->string('name');
 
             $table->foreignId('community_id')
-                ->constrained('community')
+                ->constrained('communities')
                 ->onDelete('cascade');
 
             $table->timestamps();

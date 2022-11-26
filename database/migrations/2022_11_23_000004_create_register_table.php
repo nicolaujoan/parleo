@@ -13,19 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('register', function (Blueprint $table) {
+        Schema::create('registers', function (Blueprint $table) {
             $table->id();
 
             $table->foreignId('user_id')
-                ->constrained('user')
+                ->constrained('users')
                 ->nullOnDelete();
 
             $table->foreignId('community_id')
-                ->constrained('community')
+                ->constrained('communities')
                 ->nullOnDelete();
 
             $table->foreignId('role_id')
-                ->constrained('role')
+                ->constrained('roles')
                 ->nullOnDelete();
 
             $table->timestamps();

@@ -20,15 +20,15 @@ return new class extends Migration
             $table->string('media')->nullable();
 
             $table->foreignId('user_id')
-                ->constrained('user')
+                ->constrained('users')
                 ->nullOnDelete();
 
             $table->foreignId('community_id')
-                ->constrained('community')
+                ->constrained('communities')
                 ->nullOnDelete();
 
             $table->foreignId('tag_id')
-                ->constrained('tag')
+                ->constrained('tags')
                 ->nullOnDelete();
 
             $table->timestamps();
