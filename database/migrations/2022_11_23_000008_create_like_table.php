@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('like', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
+            $table->boolean('type');
 
             $table->foreignId('user_id')
                 ->constrained('users')

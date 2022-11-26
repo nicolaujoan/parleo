@@ -5,8 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
-class UserSeeder extends Seeder
+class RoleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +16,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->count(1000)->create();
+        DB::table('roles')->insert(['name' => 'USER']);
+        DB::table('roles')->insert(['name' => 'MODERATOR']);
+        DB::table('roles')->insert(['name' => 'CREATOR']);
     }
 }
