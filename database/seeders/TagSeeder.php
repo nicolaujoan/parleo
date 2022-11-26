@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Community;
 use Illuminate\Database\Seeder;
+use App\Models\Tag;
+use Database\Factories\TagFactory;
 
-class CommunitySeeder extends Seeder
+class TagSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +15,8 @@ class CommunitySeeder extends Seeder
      */
     public function run()
     {
-       Community::factory()->count(10)->create();
+        Tag::factory()
+        ->count(10)
+        ->create();
     }
 }

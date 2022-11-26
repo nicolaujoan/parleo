@@ -14,18 +14,21 @@ return new class extends Migration
     public function up()
     {
         Schema::create('registers', function (Blueprint $table) {
-            $table->id();
+            $table->id('register_id');
 
             $table->foreignId('user_id')
-                ->constrained('users')
+                ->references('user_id')
+                ->on('users')
                 ->nullOnDelete();
 
             $table->foreignId('community_id')
-                ->constrained('communities')
+                ->references('community_id')
+                ->on('communities')
                 ->nullOnDelete();
 
             $table->foreignId('role_id')
-                ->constrained('roles')
+                ->references('role_id')
+                ->on('roles')
                 ->nullOnDelete();
 
             $table->timestamps();

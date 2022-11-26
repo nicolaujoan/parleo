@@ -14,15 +14,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->id();
+            $table->id('comment_id');
             $table->string('content');
 
             $table->foreignId('user_id')
-                ->constrained('users')
+                ->references('user_id')
+                ->on('users')
                 ->nullOnDelete();
 
             $table->foreignId('post_id')
-                ->constrained('posts')
+                ->references('post_id')
+                ->on('posts')
                 ->nullOnDelete();
 
             $table->timestamps();

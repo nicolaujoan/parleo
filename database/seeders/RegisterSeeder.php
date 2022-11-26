@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Community;
 use Illuminate\Database\Seeder;
+use App\Models\Register;
 
-class CommunitySeeder extends Seeder
+class RegisterSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,8 @@ class CommunitySeeder extends Seeder
      */
     public function run()
     {
-       Community::factory()->count(10)->create();
+        Register::factory()
+        ->count(10)
+        ->create();
     }
 }

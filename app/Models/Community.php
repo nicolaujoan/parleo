@@ -15,6 +15,7 @@ class Community extends Model
      * @var string
      */
     protected $table = 'communities';
+    protected $primaryKey = 'community_id';
 
     /**
      * The attributes that are mass assignable.

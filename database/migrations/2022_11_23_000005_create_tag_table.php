@@ -14,11 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tags', function (Blueprint $table) {
-            $table->id('id');
+            $table->id('tag_id');
             $table->string('name');
 
             $table->foreignId('community_id')
-                ->constrained('communities')
+                ->references('community_id')
+                ->on('communities')
                 ->onDelete('cascade');
 
             $table->timestamps();
