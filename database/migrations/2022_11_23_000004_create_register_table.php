@@ -13,16 +13,23 @@ return new class extends Migration
      */
     public function up()
     {
-
-        Schema::create('tags', function (Blueprint $table) {
+        Schema::create('register', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('community_id') // UNSIGNED BIG INT
-            ->references('id')
-            ->on('communities');  
-            $table->string('name');
+
+            $table->foreignId('user_id')
+                ->constrained('user')
+                ->nullOnDelete();
+
+            $table->foreignId('community_id')
+                ->constrained('community')
+                ->nullOnDelete();
+
+            $table->foreignId('role_id')
+                ->constrained('role')
+                ->nullOnDelete();
+
             $table->timestamps();
         });
-
     }
 
     /**
@@ -32,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::dropIfExists('register');
     }
 };

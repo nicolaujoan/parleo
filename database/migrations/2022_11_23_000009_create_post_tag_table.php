@@ -13,10 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('communities', function (Blueprint $table) {
+        Schema::create('post_tag', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
+
+            $table->foreignId('post_id')
+                ->constrained('post')
+                ->nullOnDelete();
+
+            $table->foreignId('tag_id')
+                ->constrained('tag')
+                ->nullOnDelete();
+
             $table->timestamps();
         });
     }
@@ -28,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('communities');
+        Schema::dropIfExists('post_tag');
     }
 };

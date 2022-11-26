@@ -13,15 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('community', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('post_id') // UNSIGNED BIG INT
-            ->references('id')
-            ->on('posts');
-            $table->foreignId('user_id') // UNSIGNED BIG INT
-            ->references('id')
-            ->on('users');   
-            $table->string('body');
+            $table->string('name');
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('community');
     }
 };
