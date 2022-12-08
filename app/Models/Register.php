@@ -15,7 +15,6 @@ class Register extends Model
      * @var string
      */
     protected $table = 'registers';
-    protected $primaryKey = 'register_id';
 
     /**
      * The attributes that are mass assignable.

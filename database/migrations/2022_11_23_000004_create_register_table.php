@@ -17,19 +17,13 @@ return new class extends Migration
             $table->id('register_id');
 
             $table->foreignId('user_id')
-                ->references('user_id')
-                ->on('users')
-                ->nullOnDelete();
+                ->constrained('users');
 
             $table->foreignId('community_id')
-                ->references('community_id')
-                ->on('communities')
-                ->nullOnDelete();
+                ->constrained('communities');
 
             $table->foreignId('role_id')
-                ->references('role_id')
-                ->on('roles')
-                ->nullOnDelete();
+                ->constrained('roles');
 
             $table->timestamps();
         });

@@ -18,21 +18,13 @@ return new class extends Migration
             $table->boolean('type');
 
             $table->foreignId('user_id')
-                ->references('user_id')
-                ->on('users')
-                ->nullOnDelete();
-
+                ->constrained('users');
 
             $table->foreignId('community_id')
-                ->references('community_id')
-                ->on('communities')
-                ->nullOnDelete();
-
+                ->constrained('communities');
 
             $table->foreignId('tag_id')
-                ->references('tag_id')
-                ->on('tags')
-                ->nullOnDelete();
+                ->constrained('tags');
 
             $table->timestamps();
         });

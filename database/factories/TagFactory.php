@@ -17,8 +17,8 @@ class TagFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->word(),
-            'community_id' => fake()->numberBetween(1, 10)
+            'name' => fake()->word()
+            
         ];
     }
 }

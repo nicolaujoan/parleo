@@ -14,25 +14,19 @@ return new class extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id('post_id');
+            $table->id();
             $table->string('title');
             $table->string('content');
             $table->string('media')->nullable();
 
             $table->foreignId('user_id')
-                ->references('user_id')
-                ->on('users')
-                ->nullOnDelete();
+                ->constrained('users');
 
             $table->foreignId('community_id')
-                ->references('community_id')
-                ->on('communities')
-                ->nullOnDelete();
+                ->constrained('communities');
 
             $table->foreignId('tag_id')
-                ->references('tag_id')
-                ->on('tags')
-                ->nullOnDelete();
+                ->constrained('tags');
 
             $table->timestamps();
         });
